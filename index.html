@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chrome 版本特性演进</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <span class="brand">Chrome Evolution Atlas</span>
+          <a href="#timeline" class="nav-link">查看版本时间轴</a>
+        </nav>
+        <div class="hero-grid">
+          <section class="hero-copy">
+            <p class="eyebrow">前端工程项目</p>
+            <h1>用一页看懂 Chrome 各版本特性与浏览器能力升级</h1>
+            <p class="hero-text">
+              从多进程架构、V8 引擎，到 PWA、WebGPU 与隐私沙箱，这个项目把 Chrome
+              历代关键版本拆成易读的模块，适合做课程展示、技术分享或简历作品。
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#timeline">开始浏览</a>
+              <a class="button secondary" href="#highlights">查看亮点</a>
+            </div>
+          </section>
+          <aside class="hero-panel">
+            <div class="metric-card">
+              <span class="metric-label">覆盖阶段</span>
+              <strong>2008 → 2025</strong>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">主题模块</span>
+              <strong>性能 / 安全 / Web 能力</strong>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">内容形式</span>
+              <strong>时间轴 + 版本卡片 + 技术摘要</strong>
+            </div>
+          </aside>
+        </div>
+      </header>
+
+      <main>
+        <section class="section" id="highlights">
+          <div class="section-heading">
+            <p class="eyebrow">核心脉络</p>
+            <h2>Chrome 为什么一直在定义现代 Web 体验</h2>
+          </div>
+          <div class="highlight-grid">
+            <article class="highlight-card">
+              <span class="tag">性能</span>
+              <h3>V8 与渲染管线持续进化</h3>
+              <p>
+                早期 Chrome 靠 V8 和独立标签页进程建立速度优势，后续持续优化
+                JavaScript、页面合成和内存回收。
+              </p>
+            </article>
+            <article class="highlight-card">
+              <span class="tag">平台能力</span>
+              <h3>从浏览网页走向运行应用</h3>
+              <p>
+                Service Worker、WebRTC、WebAssembly、PWA、WebGPU
+                等能力让浏览器逐步接近应用平台。
+              </p>
+            </article>
+            <article class="highlight-card">
+              <span class="tag">安全</span>
+              <h3>沙箱、站点隔离与隐私强化</h3>
+              <p>
+                安全始终是主线，多进程沙箱、Site Isolation、HTTPS 推进和隐私沙箱共同改变了 Web
+                的默认基线。
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="timeline">
+          <div class="section-heading">
+            <p class="eyebrow">时间轴</p>
+            <h2>Chrome 各阶段版本特性概览</h2>
+          </div>
+          <div class="timeline" id="timeline-list"></div>
+        </section>
+
+        <section class="section architecture">
+          <div class="section-heading">
+            <p class="eyebrow">架构演进</p>
+            <h2>四条长期演进主线</h2>
+          </div>
+          <div class="architecture-grid" id="architecture-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="timeline-card-template">
+      <article class="timeline-card">
+        <div class="timeline-meta">
+          <span class="timeline-version"></span>
+          <span class="timeline-period"></span>
+        </div>
+        <h3 class="timeline-title"></h3>
+        <p class="timeline-summary"></p>
+        <ul class="feature-list"></ul>
+      </article>
+    </template>
+
+    <template id="architecture-card-template">
+      <article class="architecture-card">
+        <h3></h3>
+        <p></p>
+      </article>
+    </template>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
