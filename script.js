@@ -133,6 +133,7 @@ const eraTemplate = document.querySelector("#era-card-template");
 eras.forEach((era, index) => {
   const node = eraTemplate.content.cloneNode(true);
   node.querySelector(".era-range").textContent = era.range;
+  node.querySelector(".era-index").textContent = `Stage 0${index + 1}`;
   node.querySelector(".era-title").textContent = era.title;
   node.querySelector(".era-description").textContent = era.description;
   const card = node.querySelector(".era-card");
@@ -190,6 +191,7 @@ function renderSpotlight(index) {
 
   spotlightTabs.querySelectorAll(".spotlight-tab").forEach((tab, tabIndex) => {
     tab.classList.toggle("is-active", tabIndex === index);
+    tab.setAttribute("aria-pressed", String(tabIndex === index));
   });
 }
 
@@ -198,6 +200,7 @@ chromeMilestones.forEach((item, index) => {
   tab.className = "spotlight-tab reveal";
   tab.type = "button";
   tab.style.transitionDelay = `${index * 70}ms`;
+  tab.setAttribute("aria-label", `${item.version} ${item.title}`);
   tab.innerHTML = `
     <span class="spotlight-tab-title">${item.version}</span>
     <span class="spotlight-tab-copy">${item.title}</span>

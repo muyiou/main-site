@@ -13,55 +13,92 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="noise"></div>
     <div class="page-shell">
-      <header class="hero">
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+
+      <header class="hero" id="top">
         <nav class="topbar">
-          <a class="brand" href="#top">Chrome Evolution Lab</a>
+          <a class="brand" href="#top">
+            <span class="brand-mark"></span>
+            <span>Chrome Future Atlas</span>
+          </a>
           <div class="nav-links">
-            <a href="#eras">阶段</a>
+            <a href="#eras">阶段地图</a>
             <a href="#spotlight">版本聚焦</a>
-            <a href="#capabilities">能力矩阵</a>
-            <a href="#timeline">时间轴</a>
+            <a href="#capabilities">能力跃迁</a>
+            <a href="#timeline">关键里程碑</a>
           </div>
         </nav>
 
-        <section class="hero-content" id="top">
-          <div class="hero-copy">
-            <p class="eyebrow">TAB-3 Frontend Redesign</p>
-            <h1>把 Chrome 版本史做成更像产品官网的前端展示项目</h1>
+        <section class="hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">TAB-7 New Visual Direction</p>
+            <h1>把 Chrome 演进史改造成一张可浏览的产品化能力地图</h1>
             <p class="hero-text">
-              这次改版不再只是罗列版本号，而是把 Chrome 的演进拆成阶段、代表性版本、能力趋势和平台路线，
-              更适合用来做展示、讲解和作品集。
+              新版本不再是按年份堆叠信息，而是把浏览器的发展拆解成阶段、代表版本、能力曲线和长期趋势，
+              让页面更像一份可展示、可讲解、也更像成品的专题站。
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#eras">查看阶段结构</a>
-              <a class="button secondary" href="#timeline">跳到时间轴</a>
+              <a class="button primary" href="#spotlight">查看代表版本</a>
+              <a class="button secondary" href="#timeline">浏览关键时间线</a>
             </div>
           </div>
 
-          <aside class="hero-panel">
-            <div class="hero-stat">
-              <span>时间跨度</span>
-              <strong>2008 - 2025</strong>
+          <aside class="hero-stage reveal">
+            <div class="stage-card">
+              <span class="stage-label">Launch Frame</span>
+              <strong>2008 → 2025</strong>
+              <p>从“更快的浏览器”到“高性能 Web 运行时”的长期转向。</p>
             </div>
-            <div class="hero-stat">
-              <span>改版重点</span>
-              <strong>信息架构 + 视觉系统</strong>
-            </div>
-            <div class="hero-stat">
-              <span>展示方式</span>
-              <strong>阶段导航 / 能力矩阵 / 聚焦卡片</strong>
+            <div class="stage-card accent">
+              <span class="stage-label">Current Lens</span>
+              <strong>Platform, Security, GPU</strong>
+              <p>新版聚焦平台能力、安全隔离和图形栈升级三条主线。</p>
             </div>
           </aside>
+        </section>
+
+        <section class="hero-metrics reveal">
+          <article class="metric-card">
+            <span class="metric-value">4</span>
+            <span class="metric-label">演进阶段</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-value">7</span>
+            <span class="metric-label">代表版本</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-value">17Y</span>
+            <span class="metric-label">技术跨度</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-value">4</span>
+            <span class="metric-label">能力主线</span>
+          </article>
         </section>
       </header>
 
       <main>
+        <section class="section intro-section reveal">
+          <div class="section-heading">
+            <p class="eyebrow">Narrative Frame</p>
+            <h2>先用一句话理解这次改版逻辑</h2>
+          </div>
+          <div class="intro-panel">
+            <p class="intro-lead">
+              Chrome 的版本史本质上不是“版本更新列表”，而是一条从性能优势走向平台能力扩张的路线图。
+            </p>
+            <p class="intro-copy">
+              所以页面结构被重新组织成四层：先看阶段，再看代表节点，然后理解长期能力趋势，最后再回到时间顺序审视关键发布。
+            </p>
+          </div>
+        </section>
+
         <section class="section era-section" id="eras">
           <div class="section-heading">
             <p class="eyebrow">Era Navigation</p>
-            <h2>先看阶段，再看具体版本</h2>
+            <h2>四个阶段，覆盖 Chrome 的角色变化</h2>
           </div>
           <div class="era-grid" id="era-list"></div>
         </section>
@@ -69,10 +106,11 @@
         <section class="section spotlight-section" id="spotlight">
           <div class="section-heading">
             <p class="eyebrow">Release Spotlight</p>
-            <h2>用代表版本理解能力跃迁</h2>
+            <h2>用代表版本看浏览器能力的拐点</h2>
           </div>
           <div class="spotlight-layout">
-            <article class="spotlight-main">
+            <aside class="spotlight-sidebar" id="spotlight-tabs"></aside>
+            <article class="spotlight-main reveal">
               <div class="spotlight-meta">
                 <span class="spotlight-chip" id="spotlight-version"></span>
                 <span class="spotlight-chip muted" id="spotlight-period"></span>
@@ -81,14 +119,13 @@
               <p id="spotlight-summary"></p>
               <ul id="spotlight-features" class="feature-list"></ul>
             </article>
-            <aside class="spotlight-sidebar" id="spotlight-tabs"></aside>
           </div>
         </section>
 
         <section class="section capability-section" id="capabilities">
           <div class="section-heading">
             <p class="eyebrow">Capability Matrix</p>
-            <h2>四条长期演进主线</h2>
+            <h2>长期价值不在版本号，而在这四条能力曲线</h2>
           </div>
           <div class="capability-grid" id="capability-list"></div>
         </section>
@@ -96,16 +133,24 @@
         <section class="section timeline-section" id="timeline">
           <div class="section-heading">
             <p class="eyebrow">Timeline Overview</p>
-            <h2>按时间展开关键版本节点</h2>
+            <h2>把关键节点重新排成一条阅读流</h2>
           </div>
           <div class="timeline-list" id="timeline-list"></div>
         </section>
       </main>
+      <footer class="site-footer">
+        <p class="footer-copy">
+          © 2026 Chrome Future Atlas. 本页面为前端展示练习项目，Chrome 及相关商标归 Google LLC 所有。
+        </p>
+      </footer>
     </div>
 
     <template id="era-card-template">
       <article class="era-card reveal">
-        <span class="era-range"></span>
+        <div class="era-card-top">
+          <span class="era-range"></span>
+          <span class="era-index"></span>
+        </div>
         <h3 class="era-title"></h3>
         <p class="era-description"></p>
       </article>
