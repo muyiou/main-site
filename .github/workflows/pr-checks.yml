@@ -1,0 +1,39 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  static-site-checks:
+    name: Static Site Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verify required files exist
+        run: |
+          test -f index.html
+          test -f styles.css
+          test -f script.js
+
+      - name: Check JavaScript syntax
+        run: node --check script.js
+
+      - name: Validate static asset references
+        run: |
+          grep -q '<link rel="stylesheet" href="./styles.css"' index.html
+          grep -q '<script src="./script.js"></script>' index.html
+
+      - name: Smoke test rendered content
+        run: |
+          grep -q 'Chrome Evolution Lab' index.html
+          grep -q 'const chromeMilestones' script.js
